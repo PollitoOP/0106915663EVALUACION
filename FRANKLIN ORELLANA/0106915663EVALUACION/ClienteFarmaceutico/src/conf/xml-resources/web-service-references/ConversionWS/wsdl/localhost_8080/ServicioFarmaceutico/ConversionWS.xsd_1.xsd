@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="buscarProductoPorNombre" type="tns:buscarProductoPorNombre"/>
+
+<xs:element name="buscarProductoPorNombreResponse" type="tns:buscarProductoPorNombreResponse"/>
+
+<xs:element name="crearDatos" type="tns:crearDatos"/>
+
+<xs:element name="crearDatosResponse" type="tns:crearDatosResponse"/>
+
+<xs:element name="crearProducto" type="tns:crearProducto"/>
+
+<xs:element name="crearProductoResponse" type="tns:crearProductoResponse"/>
+
+<xs:element name="eliminarProductoPorNombre" type="tns:eliminarProductoPorNombre"/>
+
+<xs:element name="eliminarProductoPorNombreResponse" type="tns:eliminarProductoPorNombreResponse"/>
+
+<xs:element name="obtenerNombresFarmacias" type="tns:obtenerNombresFarmacias"/>
+
+<xs:element name="obtenerNombresFarmaciasResponse" type="tns:obtenerNombresFarmaciasResponse"/>
+
+<xs:element name="obtenerNombresProductos" type="tns:obtenerNombresProductos"/>
+
+<xs:element name="obtenerNombresProductosResponse" type="tns:obtenerNombresProductosResponse"/>
+
+<xs:complexType name="buscarProductoPorNombre">
+<xs:sequence>
+<xs:element name="nombreProducto" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buscarProductoPorNombreResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:producto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="producto">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="farmacia" type="tns:farmacia" minOccurs="0"/>
+<xs:element name="id_producto" type="xs:int"/>
+<xs:element name="nombrePro" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="farmacia">
+<xs:sequence>
+<xs:element name="idFarmacia" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="productos" type="tns:producto" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="sucursal" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombresProductos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombresProductosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarProductoPorNombre">
+<xs:sequence>
+<xs:element name="nombreProducto" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarProductoPorNombreResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="crearProducto">
+<xs:sequence>
+<xs:element name="idProducto" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="idFarmacia" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crearProductoResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="crearDatos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="crearDatosResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombresFarmacias">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombresFarmaciasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
